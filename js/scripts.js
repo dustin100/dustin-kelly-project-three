@@ -5,5 +5,7 @@ $(document).ready(function() {
 
 	$('.card').on('click', function() {
 		$(this).toggleClass('cardFlip');
+		console.log(this);
+		console.log($(this).attr('data-card'));
 	});
 });
