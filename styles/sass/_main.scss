@@ -1,14 +1,25 @@
-.gameWrapper {
+.gameBoard {
 	display: grid;
-	grid-template-columns: repeat(3, 200px);
-	grid-template-rows: repeat(3, 200px);
-}
-
-.box {
-	display: flex;
-	font-size: 40px;
-	border: 1px solid #000;
+	grid-template-columns: repeat(3, 300px);
+	grid-gap: 1rem;
 	justify-content: center;
-	align-items: center;
 }
 
+.card {
+	position: relative;
+	border: 1px solid #000;
+	width: 250px;
+	height: 250px;
+	transform: scale(1);
+
+	
+}
+
+.cardFront,
+.cardBack {
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	position: absolute;
+	border: 1px solid red;
+}

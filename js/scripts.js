@@ -1,1 +1,3 @@
-console.log('is it working?');
+$(document).ready(function() {
+	const gameApp = {};
+});
