@@ -12,7 +12,13 @@
 	height: 250px;
 	transform: scale(1);
 
-	
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.cardFlip {
+	transform: rotate(180deg);
 }
 
 .cardFront,
@@ -21,5 +27,5 @@
 	height: 100%;
 	padding: 1rem;
 	position: absolute;
-	border: 1px solid red;
+	backface-visibility: hidden;
 }
