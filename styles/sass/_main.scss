@@ -17,10 +17,10 @@
 	&:active {
 		transform: scale(0.95);
 	}
-}
 
-.cardFlip {
-	transform: rotateY(180deg);
+	&Flip {
+		transform: rotateY(180deg);
+	}
 }
 
 .cardFront,
