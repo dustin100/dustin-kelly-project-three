@@ -1,29 +1,39 @@
 $(document).ready(function() {
 	const cardGameApp = {};
 
-	cardGameApp.cards = [1, 1, 2, 2, 3, 3];
+	let firstClick = '';
+	let secondClick = '';
+	let hasBeenFlipped = false;
 
-    // on click toggles class cardFlip and gives it the card flipping effect
+	// on click toggles class cardFlip and gives it the card flipping effect
 
 	$('.card').on('click', function() {
-		$(this).toggleClass('cardFlip');
-		console.log(this);
-		console.log($(this).attr('data-card'));
-    });
+		if (hasBeenFlipped === false) {
+			$(this).toggleClass('cardFlip');
+			hasBeenFlipped = true;
+			// sets variable on first click
+			firstClick = $(this).attr('data-card');
+			console.log(firstClick + 'clickOne');
+		} else {
+			$(this).toggleClass('cardFlip');
+			hasBeenFlipped = false;
+			// sets variable on second click
+			secondClick = $(this).attr('data-card');
+			console.log(secondClick + 'clickTwo');
+			doesItMatch();
+		}
+	});
 
-    cardGameApp.isMatch = function() {
-        if ($(this).attr('data-card') === $(this).attr('data-card')) {
-            console.log('match')
-        }else {
-            console.log('try again')
-        }
-    }
-    
+	const doesItMatch = function() {
+		if (firstClick === secondClick) {
+			console.log(`it's a match`);
+		} else {
+			console.log(`try again`);
+			resetCardsIfNotMatch();
+		}
+	};
 
-
-
-
-
-
-
+	const resetCardsIfNotMatch = function() {
+		$('.card').removeClass('cardFlip');
+	};
 });
