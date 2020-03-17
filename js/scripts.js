@@ -20,6 +20,7 @@ $(document).ready(function() {
 			// sets variable on second click
 			secondClick = $(this).attr('data-card');
 			console.log(secondClick + 'clickTwo');
+
 			doesItMatch();
 		}
 	});
@@ -34,6 +35,8 @@ $(document).ready(function() {
 	};
 
 	const resetCardsIfNotMatch = function() {
-		$('.card').removeClass('cardFlip');
+		$('.card')
+			.delay(10000)
+			.removeClass('cardFlip');
 	};
 });
