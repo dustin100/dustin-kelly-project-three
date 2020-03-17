@@ -21,7 +21,7 @@ $(document).ready(function() {
 			secondClick = $(this).attr('data-card');
 			console.log(secondClick + 'clickTwo');
 
-			doesItMatch();
+			setTimeout(doesItMatch, 1000);
 		}
 	});
 
@@ -35,8 +35,6 @@ $(document).ready(function() {
 	};
 
 	const resetCardsIfNotMatch = function() {
-		$('.card')
-			.delay(10000)
-			.removeClass('cardFlip');
+		$('.card').removeClass('cardFlip');
 	};
 });
