@@ -397,8 +397,8 @@ header p {
 .gameBoard {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (300px)[3];
-      grid-template-columns: repeat(3, 300px);
+  -ms-grid-columns: (150px)[4];
+      grid-template-columns: repeat(4, 150px);
   grid-gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -408,8 +408,8 @@ header p {
 .card {
   position: relative;
   border: 1px solid #000;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   -webkit-transform: scale(1);
           transform: scale(1);
   -webkit-transform-style: preserve-3d;

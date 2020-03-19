@@ -2,28 +2,45 @@ $(document).ready(function() {
 	let firstClick = '';
 	let secondClick = '';
 	let hasBeenFlipped = false;
+	let numOfTurns = 3;
+	const cardList = $('.card');
 
-	// on click toggles class cardFlip and gives it the card flipping effect
-
-	$('.card').on('click', function() {
+	const handleClick = function() {
 		if (hasBeenFlipped === false) {
-			$(this).toggleClass('cardFlip');
+			$(this)
+				.off('click')
+				.toggleClass('cardFlip');
 			hasBeenFlipped = true;
 
 			// sets variable on first click
 			firstClick = $(this);
-			console.log(firstClick + 'clickOne');
 		} else {
-			$(this).toggleClass('cardFlip');
+			$(this)
+				.off('click')
+				.toggleClass('cardFlip');
 			hasBeenFlipped = false;
 			// sets variable on second click
 			secondClick = $(this);
-			console.log(secondClick + 'clickTwo');
 
 			// if cards are not a match cards will wait 1 sec and flip back over.
 			setTimeout(doesItMatch, 1000);
 		}
-	});
+	};
+
+	// Randomize the cards
+
+	const Randomizer = function() {
+		for (let i = 0; i < cardList.length; i++) {
+			const mix = Math.floor(Math.random() * (cardList.length - 1));
+			const element = cardList.splice(mix, 1);
+			$('.gameBoard').append(element[0]);
+		}
+	};
+	Randomizer();
+
+	// on click toggles class cardFlip and gives it the card flipping effect
+
+	$('.card').on('click', handleClick);
 
 	// function that checks if data types are the same
 	const doesItMatch = function() {
@@ -37,7 +54,9 @@ $(document).ready(function() {
 
 	// Resets cards if they don't match
 	const resetCardsIfNotMatch = function() {
-		$('.card').removeClass('cardFlip');
+		// $('.card').removeClass('cardFlip');
+		firstClick.on('click', handleClick).removeClass('cardFlip');
+		secondClick.on('click', handleClick).removeClass('cardFlip');
 	};
 
 	// play button that starts the game

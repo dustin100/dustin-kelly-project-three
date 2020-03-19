@@ -1,6 +1,6 @@
 .gameBoard {
 	display: grid;
-	grid-template-columns: repeat(3, 300px);
+	grid-template-columns: repeat(4, 150px);
 	grid-gap: 1rem;
 	justify-content: center;
 }
@@ -8,8 +8,8 @@
 .card {
 	position: relative;
 	border: 1px solid #000;
-	width: 250px;
-	height: 250px;
+	width: 150px;
+	height: 150px;
 	transform: scale(1);
 	transform-style: preserve-3d;
 	transition: transform 0.5s;
@@ -35,4 +35,3 @@
 .cardFront {
 	transform: rotateY(180deg);
 }
-
