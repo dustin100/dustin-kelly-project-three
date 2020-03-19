@@ -1,5 +1,3 @@
-
-
 .gameBoard {
 	display: grid;
 	grid-template-columns: repeat(3, 300px);
@@ -38,6 +36,3 @@
 	transform: rotateY(180deg);
 }
 
-.newClassBlue {
-	border: 1px solid blue;
-}

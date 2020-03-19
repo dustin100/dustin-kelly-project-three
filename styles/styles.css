@@ -386,7 +386,12 @@ header h1 {
 }
 
 header p {
-  font-size: 2rem;
+  font-size: 3rem;
+  background: #fcbcb0;
+  width: 50%;
+  margin: 0 auto;
+  border: 8px solid #000;
+  padding: 2rem;
 }
 
 .gameBoard {
@@ -438,8 +443,4 @@ header p {
 .cardFront {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-}
-
-.newClassBlue {
-  border: 1px solid blue;
 }
