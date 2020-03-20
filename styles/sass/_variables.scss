@@ -1,3 +1,10 @@
 $main-color: #c3dab7;
 $light-color: #f6f6f6;
 $dark-color: #333333;
+$stripe-color: repeating-linear-gradient(
+	45deg,
+	#e33b2b,
+	#ffffff 10px,
+	#e33b2b 10px,
+	#ffffff 20px
+);

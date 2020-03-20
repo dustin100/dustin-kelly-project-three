@@ -394,22 +394,30 @@ header p {
   padding: 2rem;
 }
 
+.borderWrapper {
+  background: repeating-linear-gradient(45deg, #e33b2b, #ffffff 10px, #e33b2b 10px, #ffffff 20px);
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
 .gameBoard {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (150px)[4];
-      grid-template-columns: repeat(4, 150px);
+  -ms-grid-columns: (150px)[6];
+      grid-template-columns: repeat(6, 150px);
   grid-gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background: #000;
+  padding: 5rem 0;
+  margin-bottom: 1rem;
 }
 
 .card {
   position: relative;
   border: 1px solid #000;
   width: 150px;
-  height: 150px;
+  height: 200px;
   -webkit-transform: scale(1);
           transform: scale(1);
   -webkit-transform-style: preserve-3d;
@@ -443,4 +451,11 @@ header p {
 .cardFront {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.turnsLeft {
+  background: green;
+  font-size: 3rem;
+  height: 50px;
+  color: red;
 }
