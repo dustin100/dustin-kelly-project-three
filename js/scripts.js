@@ -1,10 +1,12 @@
 let firstClick = '';
 let secondClick = '';
 let hasBeenFlipped = false;
-let numOfTurns = 3;
+let numOfTurns = 5;
 const cardList = $('.card');
+let lockBoard = false;
 
 const handleClick = function() {
+	if (lockBoard) return;
 	if (hasBeenFlipped === false) {
 		$(this)
 			.off('click')
@@ -17,9 +19,13 @@ const handleClick = function() {
 		$(this)
 			.off('click')
 			.toggleClass('cardFlip');
+
 		hasBeenFlipped = false;
 		// sets variable on second click
 		secondClick = $(this);
+
+		// This locks the board after the second card is flipped 
+		lockBoard = true;
 
 		// if cards are not a match cards will wait 1 sec and flip back over.
 		setTimeout(doesItMatch, 1000);
@@ -28,16 +34,20 @@ const handleClick = function() {
 
 // Randomize the cards
 
-const Randomizer = function() {
-	for (let i = 0; i < cardList.length; i++) {
-		const mix = Math.floor(Math.random() * (cardList.length - 1));
-		const element = cardList.splice(mix, 1);
+const randomizer = function(array) {
+	for (let i = array.length; i > 0; i--) {
+		// this gives a random number between 0  and array length
+		const randomCardIndex = Math.floor(Math.random() * array.length);
+		const element = array.splice(randomCardIndex, 1);
 		$('.gameBoard').append(element[0]);
 	}
 };
 
 // Counts down the number of turns left
-const takeTurn = turn => (turn = numOfTurns--);
+const takeTurn = turn => {
+	turn = numOfTurns--;
+	$('.turnsLeft').text(numOfTurns);
+};
 
 // on click toggles class cardFlip and gives it the card flipping effect
 
@@ -47,16 +57,17 @@ $('.card').on('click', handleClick);
 const doesItMatch = function() {
 	if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
 		console.log(`it's a match`);
+		lockBoard = false;
 	} else {
 		console.log(`try again`);
 		resetCardsIfNotMatch();
 		takeTurn();
+		lockBoard = false;
 	}
 };
 
 // Resets cards if they don't match
 const resetCardsIfNotMatch = function() {
-	// $('.card').removeClass('cardFlip');
 	firstClick.on('click', handleClick).removeClass('cardFlip');
 	secondClick.on('click', handleClick).removeClass('cardFlip');
 };
@@ -64,10 +75,8 @@ const resetCardsIfNotMatch = function() {
 // play button that starts the game
 $('.playButton').on('click', function() {
 	$('header').fadeOut('slow');
-	Randomizer();
-	$('.turnsLeft').html(takeTurn);
+	randomizer(cardList);
+	$('.turnsLeft').text(numOfTurns);
 });
-
-// insert number of turns
 
 $(document).ready(function() {});

@@ -8,7 +8,6 @@ header {
 	.wrapper {
 		text-align: center;
 		padding-bottom: 20rem;
-		
 	}
 
 	h1 {
@@ -17,10 +16,10 @@ header {
 
 	p {
 		font-size: 3rem;
-		background: #fcbcb0;
+		background: $main-color;
 		width: 50%;
 		margin: 0 auto;
-		border: 8px solid #000;
+		border: 8px solid $dark-color;
 		padding: 2rem;
 	}
 }

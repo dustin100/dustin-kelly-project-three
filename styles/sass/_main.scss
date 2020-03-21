@@ -8,14 +8,14 @@
 	grid-template-columns: repeat(6, 150px);
 	grid-gap: 1rem;
 	justify-content: center;
-	background: #000;
+	background: $dark-color;
 	padding: 5rem 0;
 	margin-bottom: 1rem;
 }
 
 .card {
 	position: relative;
-	border: 1px solid #000;
+	border: 1px solid $dark-color;
 	width: 150px;
 	height: 200px;
 	transform: scale(1);
