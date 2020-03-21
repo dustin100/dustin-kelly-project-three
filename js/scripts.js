@@ -1,9 +1,10 @@
-let firstClick = '';
-let secondClick = '';
-let hasBeenFlipped = false;
-let numOfTurns = 5;
 const cardList = $('.card');
-let lockBoard = false;
+let firstClick;
+let secondClick;
+let hasBeenFlipped = false;
+let lockBoard;
+let numOfTurns;
+let isGameOver;
 
 const handleClick = function() {
 	if (lockBoard) return;
@@ -24,7 +25,7 @@ const handleClick = function() {
 		// sets variable on second click
 		secondClick = $(this);
 
-		// This locks the board after the second card is flipped 
+		// This locks the board after the second card is flipped
 		lockBoard = true;
 
 		// if cards are not a match cards will wait 1 sec and flip back over.
@@ -47,6 +48,7 @@ const randomizer = function(array) {
 const takeTurn = turn => {
 	turn = numOfTurns--;
 	$('.turnsLeft').text(numOfTurns);
+	checkTurnsLeft();
 };
 
 // on click toggles class cardFlip and gives it the card flipping effect
@@ -58,6 +60,7 @@ const doesItMatch = function() {
 	if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
 		console.log(`it's a match`);
 		lockBoard = false;
+		areAllCardsFlipped();
 	} else {
 		console.log(`try again`);
 		resetCardsIfNotMatch();
@@ -75,8 +78,46 @@ const resetCardsIfNotMatch = function() {
 // play button that starts the game
 $('.playButton').on('click', function() {
 	$('header').fadeOut('slow');
-	randomizer(cardList);
-	$('.turnsLeft').text(numOfTurns);
+	gameSetUp();
 });
 
+const gameSetUp = () => {
+	selectMode();
+	randomizer(cardList);
+	lockBoard = false;
+	isGameOver = false;
+	$('.turnsLeft').text(numOfTurns);
+};
+
+// allows user to choose their difficulty level
+const selectMode = function(selected) {
+	selected = $("input[name='difficulty']:checked").val();
+	if (selected === 'easy') {
+		numOfTurns = 20;
+	} else if (selected === 'normal') {
+		numOfTurns = 10;
+	} else {
+		numOfTurns = 5;
+	}
+};
+
+// Make game winning logic
+
+// if all cards are flipped > game over || game turns left are zero > game over
+
+const checkTurnsLeft = function(turn) {
+	turn = numOfTurns;
+	if (turn <= 0) {
+		return (isGameOver = true);
+	}
+};
+
+const areAllCardsFlipped = function(flipped) {
+	flipped = $('.cardFlip').length;
+	if (flipped === 18) {
+		isGameOver = true;
+	}
+};
+
+checkFlippedCards = function() {};
 $(document).ready(function() {});
