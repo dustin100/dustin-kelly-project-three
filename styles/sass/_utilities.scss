@@ -7,16 +7,15 @@
 
 .btn {
 	display: inline-block;
-	@include pixBorder(2px, black);
+	@include pixBorder(3px, black);
 	background: $light-color;
 	color: #000;
 	padding: 1rem 4rem;
 	text-decoration: none;
 	font-weight: 700;
-	font-size: 1rem;
+	font-size: 2rem;
 	letter-spacing: 0.7px;
-	font-family: 'Montserrat', sans-serif;
-	line-height: 2.4rem;
+	font-family: 'Press Start 2P', cursive;
 	text-transform: uppercase;
 
 	&:hover {

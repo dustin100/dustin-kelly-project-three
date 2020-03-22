@@ -13,13 +13,14 @@ header {
 	h1 {
 		font-size: 5rem;
 		margin: 2rem 0;
+		font-family: 'Press Start 2P', cursive;
 	}
 
 	p {
 		font-size: 3rem;
 		background: $main-color;
 		@include pixBorder(6px, black);
-		width: 50%;
+		width: 60%;
 		margin: 0 auto;
 		padding: 2rem;
 		margin-bottom: 2rem;
@@ -36,17 +37,30 @@ header {
 		height: 0;
 	}
 
-	label img {
+	legend {
+		width: 100%;
+		font-family: 'Press Start 2P', cursive;
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+	}
+
+	label > img {
 		width: 100px;
 		height: auto;
 		background: $light-color;
-		@include pixBorder(2px, black);
+		@include pixBorder(3px, black);
 		padding: 1rem;
 		cursor: pointer;
-		margin-right: 1rem;
+		margin-right: 2rem;
+		transition: all 1s ease-in-out;
+
+		&:hover {
+			transform: scale(1.07);
+		}
 	}
 
 	input[type='radio']:checked + label > img {
 		background: orange;
+		transform: scale(1.07);
 	}
 }

@@ -9,8 +9,7 @@
 	grid-gap: 1rem;
 	justify-content: center;
 	background: $dark-color;
-	padding: 5rem 0;
-	margin-bottom: 1rem;
+	padding-top: 4rem;
 }
 
 .card {
@@ -44,9 +43,16 @@
 	transform: rotateY(180deg);
 }
 
-.turnsLeft {
-	background: green;
-	font-size: 3rem;
-	height: 50px;
-	color: red;
+.infoTurn {
+	display: flex;
+	background: $dark-color;
+	font-size: 1.8rem;
+	color: #fff;
+	padding: 2rem 1rem 0 0;
+	justify-content: flex-end;
+	font-family: 'Press Start 2P', cursive;
+
+	p {
+		margin-right: 2rem;
+	}
 }
