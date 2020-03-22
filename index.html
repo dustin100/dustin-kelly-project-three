@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
+    <link
+    rel='stylesheet'
+    href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+    integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/'
+    crossorigin='anonymous'
+     />
     <title>Card Game</title>
 </head>
 
@@ -12,18 +18,23 @@
 
     <header>
         <div class="wrapper">
-            <h1>Card Matching Game</h1>
+            <h1>Memory Match</h1>
             <p class="gameInstructions">Flip over any two cards and see if they match. Miss twice and you're out </p>
             <div class="mode">
                 <input type="radio" id="easy" name="difficulty" value="easy">
-                <label for="easy">Easy</label>
+
+                <label for="easy"><img src="./img/mushroomButton.png" alt="mario mushroom"></label>
+
                 <input type="radio" id="normal" name="difficulty" value="normal">
-                <label for="normal">Normal</label>
+
+                <label for="normal"><img src="./img/flowerButton.png" alt="mario flower"></label>
+
                 <input type="radio" id="hard" name="difficulty" value="hard">
-                <label for="hard">Hard</label>
+
+                <label for="hard"><img src="./img/starButton.png" alt="mario flower"></label>
             </div>
 
-            <button class="btn playButton">Play</button>
+            <button class="btn playButton">Play <i class="fas fa-play"></i></button>
         </div>
     </header>
 
@@ -31,77 +42,77 @@
         <div class="borderWrapper">
             <section class="gameBoard">
                 <div class="card" data-card="mushroom">
-                    <img class="cardFront" src="./img/mushroomCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/mushroomCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="mushroom">
-                    <img class="cardFront" src="./img/mushroomCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/mushroomCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="mushroom">
-                    <img class="cardFront" src="./img/mushroomCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/mushroomCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="mushroom">
-                    <img class="cardFront" src="./img/mushroomCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/mushroomCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="star">
-                    <img class="cardFront" src="./img/starCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/starCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="star">
-                    <img class="cardFront" src="./img/starCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/starCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
 
                 <div class="card" data-card="star">
-                    <img class="cardFront" src="./img/starCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/starCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="star">
-                    <img class="cardFront" src="./img/starCard.png" alt="mushroom card">
+                    <img class="cardFront" src="./img/starCard.jpg" alt="mushroom card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="one-up">
-                    <img class="cardFront" src="./img/oneup.png" alt="one up">
+                    <img class="cardFront" src="./img/oneUpCard.jpg" alt="one up">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="one-up">
-                    <img class="cardFront" src="./img/oneup.png" alt="one up">
+                    <img class="cardFront" src="./img/oneUpCard.jpg" alt="one up">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="coin">
-                    <img class="cardFront" src="./img/coin.png" alt="coin card">
+                    <img class="cardFront" src="./img/coinCard.jpg" alt="coin card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
 
                 <div class="card" data-card="coin">
-                    <img class="cardFront" src="./img/coin.png" alt="coin card">
+                    <img class="cardFront" src="./img/coinCard.jpg" alt="coin card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="flower">
-                    <img class="cardFront" src="./img/flower.jpg" alt="flower card">
+                    <img class="cardFront" src="./img/flowerCard.jpg" alt="flower card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="flower">
-                    <img class="cardFront" src="./img/flower.jpg" alt="flower card">
+                    <img class="cardFront" src="./img/flowerCard.jpg" alt="flower card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="block">
-                    <img class="cardFront" src="./img/block.png" alt="block card">
+                    <img class="cardFront" src="./img/mysteryBoxCard.jpg" alt="block card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
                 <div class="card" data-card="block">
-                    <img class="cardFront" src="./img/block.png" alt="block card">
+                    <img class="cardFront" src="./img/mysteryBoxCard.jpg" alt="block card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
-                <div class="card" data-card="block">
-                    <img class="cardFront" src="./img/block.png" alt="block card">
+                <div class="card" data-card="chest">
+                    <img class="cardFront" src="./img/chestCard.jpg" alt="block card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
-                <div class="card" data-card="block">
-                    <img class="cardFront" src="./img/block.png" alt="block card">
+                <div class="card" data-card="chest">
+                    <img class="cardFront" src="./img/chestCard.jpg" alt="block card">
                     <img class="cardBack" src="./img/spadeCard.jpg" alt="spade">
                 </div>
         </div>

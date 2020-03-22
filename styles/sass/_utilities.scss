@@ -1,14 +1,14 @@
 /* Utilites */
 .wrapper {
 	max-width: 1280px;
-	margin: auto;
+	margin: 0 auto;
 	width: 90%;
 }
 
 .btn {
 	display: inline-block;
-	border: none;
-	background: red;
+	@include pixBorder(2px, black);
+	background: $light-color;
 	color: #000;
 	padding: 1rem 4rem;
 	text-decoration: none;
@@ -20,6 +20,6 @@
 	text-transform: uppercase;
 
 	&:hover {
-		opacity: 0.9;
+		background: orange;
 	}
 }

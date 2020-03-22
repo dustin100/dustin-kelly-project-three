@@ -6,6 +6,7 @@ let lockBoard;
 let numOfTurns;
 let isGameOver;
 
+
 const handleClick = function() {
 	if (lockBoard) return;
 	if (hasBeenFlipped === false) {
@@ -108,16 +109,19 @@ const selectMode = function(selected) {
 const checkTurnsLeft = function(turn) {
 	turn = numOfTurns;
 	if (turn <= 0) {
-		return (isGameOver = true);
+		isGameOver = true;
+		
 	}
 };
 
 const areAllCardsFlipped = function(flipped) {
 	flipped = $('.cardFlip').length;
 	if (flipped === 18) {
+		
 		isGameOver = true;
 	}
 };
 
-checkFlippedCards = function() {};
+
+
 $(document).ready(function() {});

@@ -341,14 +341,16 @@ textarea {
 /* Utilites */
 .wrapper {
   max-width: 1280px;
-  margin: auto;
+  margin: 0 auto;
   width: 90%;
 }
 
 .btn {
   display: inline-block;
-  border: none;
-  background: red;
+  -webkit-box-shadow: 2px 0 black, -2px 0 black, 0 -2px black, 0 2px black;
+          box-shadow: 2px 0 black, -2px 0 black, 0 -2px black, 0 2px black;
+  margin: 2px auto;
+  background: #98f7ef;
   color: #000;
   padding: 1rem 4rem;
   text-decoration: none;
@@ -361,14 +363,14 @@ textarea {
 }
 
 .btn:hover {
-  opacity: 0.9;
+  background: orange;
 }
 
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(../img/background.png) no-repeat center center/cover;
+  background: url(../img/background.jpg) no-repeat center center/cover;
   height: 100vh;
   width: 100%;
   -webkit-box-pack: center;
@@ -383,15 +385,46 @@ header .wrapper {
 
 header h1 {
   font-size: 5rem;
+  margin: 2rem 0;
 }
 
 header p {
   font-size: 3rem;
   background: #fcbcb0;
+  -webkit-box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+          box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+  margin: 6px auto;
   width: 50%;
   margin: 0 auto;
-  border: 8px solid #000;
   padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+header .mode {
+  margin-bottom: 2rem;
+}
+
+header [type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+header label img {
+  width: 100px;
+  height: auto;
+  background: #98f7ef;
+  -webkit-box-shadow: 2px 0 black, -2px 0 black, 0 -2px black, 0 2px black;
+          box-shadow: 2px 0 black, -2px 0 black, 0 -2px black, 0 2px black;
+  margin: 2px auto;
+  padding: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+header input[type='radio']:checked + label > img {
+  background: orange;
 }
 
 .borderWrapper {

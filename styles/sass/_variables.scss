@@ -1,5 +1,5 @@
 $main-color: #fcbcb0;
-$light-color: #f6f6f6;
+$light-color: #98f7ef;
 $dark-color: #000;
 $stripe-color: repeating-linear-gradient(
 	45deg,
@@ -8,3 +8,12 @@ $stripe-color: repeating-linear-gradient(
 	#e33b2b 10px,
 	#ffffff 20px
 );
+
+
+// got mixin from here https://codepen.io/albpara/pen/xDBvc
+
+@mixin pixBorder($width, $color) {
+	box-shadow: $width 0 $color, -$width 0 $color, 0 (-$width) $color,
+		0 $width $color;
+	margin: $width auto;
+}
