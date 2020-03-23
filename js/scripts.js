@@ -6,7 +6,6 @@ let lockBoard;
 let numOfTurns;
 let isGameOver;
 
-
 const handleClick = function() {
 	if (lockBoard) return;
 	if (hasBeenFlipped === false) {
@@ -50,6 +49,7 @@ const takeTurn = turn => {
 	turn = numOfTurns--;
 	$('.turnsLeft').text(numOfTurns);
 	checkTurnsLeft();
+	checkEndOfGame();
 };
 
 // on click toggles class cardFlip and gives it the card flipping effect
@@ -59,11 +59,9 @@ $('.card').on('click', handleClick);
 // function that checks if data types are the same
 const doesItMatch = function() {
 	if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
-		console.log(`it's a match`);
 		lockBoard = false;
 		areAllCardsFlipped();
 	} else {
-		console.log(`try again`);
 		resetCardsIfNotMatch();
 		takeTurn();
 		lockBoard = false;
@@ -110,18 +108,31 @@ const checkTurnsLeft = function(turn) {
 	turn = numOfTurns;
 	if (turn <= 0) {
 		isGameOver = true;
-		
+		$('.gameMessage').show();
+		$('.statement')
+			.text('You Lose')
+			.css({
+				color: 'red'
+			});
 	}
 };
 
 const areAllCardsFlipped = function(flipped) {
 	flipped = $('.cardFlip').length;
 	if (flipped === 18) {
-		
 		isGameOver = true;
+		$('.gameMessage').show();
+		$('.statement')
+			.text('You Win')
+			.css({
+				color: 'green'
+			});
 	}
 };
 
-
+const checkEndOfGame = function() {
+	checkTurnsLeft();
+	areAllCardsFlipped();
+};
 
 $(document).ready(function() {});

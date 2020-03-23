@@ -56,3 +56,20 @@
 		margin-right: 2rem;
 	}
 }
+
+.gameMessage {
+	display: none;
+	background: rgba(0, 0, 0, 0.9);
+	text-align: center;
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: auto;
+	padding-top: 20%;
+
+	.statement {
+		font-size: 3rem;
+	}
+}

@@ -4,10 +4,10 @@ header {
 	height: 100vh;
 	width: 100%;
 	justify-content: center;
+	text-align: center;
 
 	.wrapper {
-		text-align: center;
-		padding-bottom: 20rem;
+		position: relative;
 	}
 
 	h1 {
@@ -52,7 +52,7 @@ header {
 		padding: 1rem;
 		cursor: pointer;
 		margin-right: 2rem;
-		transition: all 1s ease-in-out;
+		transition: all 0.6s ease-in-out;
 
 		&:hover {
 			transform: scale(1.07);
@@ -60,7 +60,23 @@ header {
 	}
 
 	input[type='radio']:checked + label > img {
-		background: orange;
+		background: $main-color;
 		transform: scale(1.07);
+	}
+
+	.mario {
+		position: absolute;
+		top: 54%;
+		left: 11%;
+	}
+
+	.toad {
+		position: absolute;
+		top: 54%;
+		right: 15%;
+	}
+
+	figure img {
+		width: 200%;
 	}
 }

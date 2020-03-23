@@ -359,10 +359,12 @@ textarea {
   letter-spacing: 0.7px;
   font-family: 'Press Start 2P', cursive;
   text-transform: uppercase;
+  -webkit-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
 }
 
 .btn:hover {
-  background: orange;
+  background: #fcbcb0;
 }
 
 header {
@@ -375,11 +377,11 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
 }
 
 header .wrapper {
-  text-align: center;
-  padding-bottom: 20rem;
+  position: relative;
 }
 
 header h1 {
@@ -428,8 +430,8 @@ header label > img {
   padding: 1rem;
   cursor: pointer;
   margin-right: 2rem;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 header label > img:hover {
@@ -438,9 +440,25 @@ header label > img:hover {
 }
 
 header input[type='radio']:checked + label > img {
-  background: orange;
+  background: #fcbcb0;
   -webkit-transform: scale(1.07);
           transform: scale(1.07);
+}
+
+header .mario {
+  position: absolute;
+  top: 54%;
+  left: 11%;
+}
+
+header .toad {
+  position: absolute;
+  top: 54%;
+  right: 15%;
+}
+
+header figure img {
+  width: 200%;
 }
 
 .borderWrapper {
@@ -517,4 +535,21 @@ header input[type='radio']:checked + label > img {
 
 .infoTurn p {
   margin-right: 2rem;
+}
+
+.gameMessage {
+  display: none;
+  background: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  padding-top: 20%;
+}
+
+.gameMessage .statement {
+  font-size: 3rem;
 }
