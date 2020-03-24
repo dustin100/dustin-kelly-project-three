@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	const cardList = $('.card');
+	let cardList = $('.card');
 	let firstClick;
 	let secondClick;
 	let hasBeenFlipped;
@@ -43,10 +43,8 @@ $(document).ready(function() {
 			// this gives a random number between 0  and array length
 			const randomCardIndex = Math.floor(Math.random() * array.length);
 			const element = array.splice(randomCardIndex, 1);
-			console.log(element[0]);
 			$('.gameBoard').append(element[0]);
 		}
-		console.log('hey')
 	};
 
 	// Counts down the number of turns left
@@ -97,6 +95,7 @@ $(document).ready(function() {
 		isGameOver = false;
 		hasBeenFlipped = false;
 		randomizer(cardList);
+		cardList = $('.card');
 		$('.turnsLeft').text(numOfTurns);
 	};
 
