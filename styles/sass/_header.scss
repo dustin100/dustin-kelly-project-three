@@ -20,12 +20,14 @@ header {
 		font-size: 3rem;
 		background: $main-color;
 		@include pixBorder(6px, black);
-		width: 60%;
+		width: 80%;
 		margin: 0 auto;
 		padding: 2rem;
 		margin-bottom: 2rem;
 	}
-
+legend {
+	background: rgba($color: #ffffff, $alpha: 0.7);
+}
 	.mode {
 		margin-bottom: 2rem;
 	}
@@ -64,19 +66,5 @@ header {
 		transform: scale(1.07);
 	}
 
-	.mario {
-		position: absolute;
-		top: 54%;
-		left: 11%;
-	}
-
-	.toad {
-		position: absolute;
-		top: 54%;
-		right: 15%;
-	}
-
-	figure img {
-		width: 200%;
-	}
+	
 }

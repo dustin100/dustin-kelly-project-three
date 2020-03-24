@@ -1,0 +1,29 @@
+@media screen and (max-width: 768px) {
+	.btn {
+		padding: 1rem 2rem;
+	}
+
+	header {
+		h1 {
+			font-size: 4rem;
+		}
+
+		p {
+			font-size: 2rem;
+		}
+	}
+
+	.gameBoard {
+		grid-template-columns: repeat(3, minmax(50px, 150px));
+		padding-top: 1rem;
+	}
+
+	.infoTurn {
+		font-size: 1rem;
+		padding: 1.5rem 1rem 0 0;
+
+		p {
+			margin-right: 1rem;
+		}
+	}
+}

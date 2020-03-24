@@ -354,7 +354,6 @@ textarea {
   color: #000;
   padding: 1rem 4rem;
   text-decoration: none;
-  font-weight: 700;
   font-size: 2rem;
   letter-spacing: 0.7px;
   font-family: 'Press Start 2P', cursive;
@@ -396,10 +395,14 @@ header p {
   -webkit-box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
           box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
   margin: 6px auto;
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding: 2rem;
   margin-bottom: 2rem;
+}
+
+header legend {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 header .mode {
@@ -443,22 +446,6 @@ header input[type='radio']:checked + label > img {
   background: #fcbcb0;
   -webkit-transform: scale(1.07);
           transform: scale(1.07);
-}
-
-header .mario {
-  position: absolute;
-  top: 54%;
-  left: 11%;
-}
-
-header .toad {
-  position: absolute;
-  top: 54%;
-  right: 15%;
-}
-
-header figure img {
-  width: 200%;
 }
 
 .borderWrapper {
@@ -558,16 +545,50 @@ header figure img {
   font-size: 3rem;
 }
 
-@media screen and (max-width: 767px) and (orientation: landscape) {
-  html {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    -webkit-transform-origin: left top;
-            transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
+@media screen and (max-width: 768px) {
+  .btn {
+    padding: 1rem 2rem;
+  }
+  header h1 {
+    font-size: 4rem;
+  }
+  header p {
+    font-size: 2rem;
+  }
+  .gameBoard {
+    -ms-grid-columns: (minmax(50px, 150px))[3];
+        grid-template-columns: repeat(3, minmax(50px, 150px));
+    padding-top: 1rem;
+  }
+  .infoTurn {
+    font-size: 1rem;
+    padding: 1.5rem 1rem 0 0;
+  }
+  .infoTurn p {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 489px) {
+  .btn {
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 2rem;
+    width: 95%;
+  }
+  header legend {
+    font-size: 2rem;
+  }
+  header label > img {
+    width: 75px;
+    margin-right: 3rem;
+  }
+  header label[for='hard'] img {
+    margin-right: 0;
   }
 }
