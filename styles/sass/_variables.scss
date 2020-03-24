@@ -9,11 +9,12 @@ $stripe-color: repeating-linear-gradient(
 	#ffffff 20px
 );
 
-
-// got mixin from here https://codepen.io/albpara/pen/xDBvc
+// got mixin from  https://codepen.io/albpara/pen/xDBvc
 
 @mixin pixBorder($width, $color) {
 	box-shadow: $width 0 $color, -$width 0 $color, 0 (-$width) $color,
 		0 $width $color;
 	margin: $width auto;
 }
+
+

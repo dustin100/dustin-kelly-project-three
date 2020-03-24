@@ -7,12 +7,11 @@
 .gameBoard {
 	display: grid;
 	grid-template-columns: repeat(6, minmax(50px, 150px));
-	grid-template-rows: repeat(3, 1fr);
 	grid-gap: 1rem;
 	justify-content: center;
 	background: $dark-color;
 	padding-top: 3rem;
-	height: 100vh;
+
 }
 
 .card {
@@ -35,11 +34,17 @@
 	max-width: 100%;
 	height: auto;
 	padding: 1rem;
-	position: absolute;
 	backface-visibility: hidden;
 }
 
+.cardBack {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
 .cardFront {
+	position: relative;
 	transform: rotateY(180deg);
 }
 
@@ -72,4 +77,16 @@
 	.statement {
 		font-size: 3rem;
 	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
 }

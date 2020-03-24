@@ -472,15 +472,12 @@ header figure img {
   display: grid;
   -ms-grid-columns: (minmax(50px, 150px))[6];
       grid-template-columns: repeat(6, minmax(50px, 150px));
-  -ms-grid-rows: (1fr)[3];
-      grid-template-rows: repeat(3, 1fr);
   grid-gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   background: #000;
   padding-top: 3rem;
-  height: 100vh;
 }
 
 .card {
@@ -510,12 +507,18 @@ header figure img {
   max-width: 100%;
   height: auto;
   padding: 1rem;
-  position: absolute;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
 
+.cardBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .cardFront {
+  position: relative;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -553,4 +556,18 @@ header figure img {
 
 .gameMessage .statement {
   font-size: 3rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: left top;
+            transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
 }
