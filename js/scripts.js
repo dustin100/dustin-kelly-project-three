@@ -76,13 +76,25 @@ $(document).ready(function() {
 	// play button that starts the game
 	$('.playButton').on('click', function() {
 		$('header').fadeOut('slow');
+		$('.borderWrapper').fadeIn('slow');
 		gameSetUp();
 	});
 
 	$('.replay').on('click', function() {
 		$('.card').removeClass('cardFlip');
-		$('.gameMessage').hide();
+		$('.gameMessage').fadeOut('slow');
+		$('.card')
+			.off()
+			.on('click', handleClick)
+			.removeClass('cardFlip');
+		gameSetUp();
+	});
+
+	$('.backMenu').on('click', function() {
 		$('header').fadeIn('slow');
+		$('.gameMessage').hide();
+		$('.borderWrapper').fadeOut('slow');
+
 		$('.card')
 			.off()
 			.on('click', handleClick)
