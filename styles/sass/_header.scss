@@ -25,9 +25,9 @@ header {
 		padding: 2rem;
 		margin-bottom: 2rem;
 	}
-legend {
-	background: rgba($color: #ffffff, $alpha: 0.7);
-}
+	legend {
+		background: rgba($color: #ffffff, $alpha: 0.7);
+	}
 	.mode {
 		margin-bottom: 2rem;
 	}
@@ -65,6 +65,4 @@ legend {
 		background: $main-color;
 		transform: scale(1.07);
 	}
-
-	
 }
