@@ -457,8 +457,8 @@ header input[type='radio']:checked + label > img {
 .gameBoard {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(50px, 150px))[6];
-      grid-template-columns: repeat(6, minmax(50px, 150px));
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
   grid-gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -549,16 +549,14 @@ header input[type='radio']:checked + label > img {
   .btn {
     padding: 1rem 2rem;
   }
+  .wrapper {
+    width: 100%;
+  }
   header h1 {
     font-size: 4rem;
   }
   header p {
     font-size: 2rem;
-  }
-  .gameBoard {
-    -ms-grid-columns: (minmax(50px, 150px))[3];
-        grid-template-columns: repeat(3, minmax(50px, 150px));
-    padding-top: 1rem;
   }
   .infoTurn {
     font-size: 1rem;

@@ -3,6 +3,9 @@
 		padding: 1rem 2rem;
 	}
 
+	.wrapper {
+		width: 100%;
+	}
 	header {
 		h1 {
 			font-size: 4rem;
@@ -13,10 +16,7 @@
 		}
 	}
 
-	.gameBoard {
-		grid-template-columns: repeat(3, minmax(50px, 150px));
-		padding-top: 1rem;
-	}
+	
 
 	.infoTurn {
 		font-size: 1rem;
