@@ -604,8 +604,8 @@ header input[type='radio']:checked + label > img {
     font-size: 2rem;
   }
   .gameBoard {
-    -ms-grid-columns: (minmax(50px, 150px))[3];
-        grid-template-columns: repeat(3, minmax(50px, 150px));
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
     padding-top: 1rem;
   }
 }
