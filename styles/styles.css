@@ -569,11 +569,30 @@ header input[type='radio']:checked + label > img {
   }
 }
 
-@media screen and (max-width: 489px) {
+@media screen and (max-width: 731px) {
   .btn {
     padding: 1rem 1rem;
     font-size: 1.5rem;
   }
+  header label > img {
+    width: 75px;
+    margin-right: 3rem;
+  }
+  header label[for='hard'] img {
+    margin-right: 0;
+  }
+  .gameBoard {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+    padding-top: 1rem;
+  }
+  .cardFront,
+  .cardBack {
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 489px) {
   header h1 {
     font-size: 2.5rem;
   }
@@ -584,11 +603,9 @@ header input[type='radio']:checked + label > img {
   header legend {
     font-size: 2rem;
   }
-  header label > img {
-    width: 75px;
-    margin-right: 3rem;
-  }
-  header label[for='hard'] img {
-    margin-right: 0;
+  .gameBoard {
+    -ms-grid-columns: (minmax(50px, 150px))[3];
+        grid-template-columns: repeat(3, minmax(50px, 150px));
+    padding-top: 1rem;
   }
 }
