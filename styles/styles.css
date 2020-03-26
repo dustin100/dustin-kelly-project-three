@@ -496,7 +496,6 @@ header input[type='radio']:checked + label > img {
   padding: 1rem;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  mix-blend-mode: multiply;
 }
 
 .cardBack {
@@ -516,7 +515,6 @@ header input[type='radio']:checked + label > img {
   display: -ms-flexbox;
   display: flex;
   background: #000;
-  font-size: 1.8rem;
   color: #fff;
   padding: 2rem 1rem;
   -webkit-box-pack: justify;
@@ -527,6 +525,7 @@ header input[type='radio']:checked + label > img {
 
 .infoTurn p {
   margin-right: 2rem;
+  font-size: 1.6rem;
 }
 
 .gmBoardReturn {
