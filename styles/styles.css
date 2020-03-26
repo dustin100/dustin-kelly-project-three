@@ -457,8 +457,8 @@ header input[type='radio']:checked + label > img {
 .gameBoard {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (150px)[6];
-      grid-template-columns: repeat(6, 150px);
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
   grid-gap: 2rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -477,6 +477,7 @@ header input[type='radio']:checked + label > img {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
+  max-width: 150px;
 }
 
 .card:active {
@@ -605,10 +606,6 @@ header input[type='radio']:checked + label > img {
     -ms-grid-columns: (1fr)[6];
         grid-template-columns: repeat(6, 1fr);
     padding-top: 1rem;
-  }
-  .cardFront,
-  .cardBack {
-    max-width: 95%;
   }
 }
 
