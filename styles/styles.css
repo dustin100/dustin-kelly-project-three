@@ -493,7 +493,6 @@ header input[type='radio']:checked + label > img {
 .cardBack {
   max-width: 100%;
   height: auto;
-  padding: 1rem;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
