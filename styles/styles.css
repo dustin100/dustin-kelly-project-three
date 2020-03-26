@@ -459,7 +459,7 @@ header input[type='radio']:checked + label > img {
   display: grid;
   -ms-grid-columns: (150px)[6];
       grid-template-columns: repeat(6, 150px);
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
