@@ -157,6 +157,15 @@ $(document).ready(function() {
 		checkTurnsLeft();
 		areAllCardsFlipped();
 	};
+
+	
+// Checks if user is using Chrome. If so, add css 
+	 (function() {
+		const isChromium = !!window.chrome;
+		if (isChromium === true) {
+			$('.cardFront, .cardBack').css('mix-blend-mode', 'multiply');
+		}
+	})();
+
+	
 });
-
-
