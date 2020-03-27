@@ -583,7 +583,7 @@ header input[type='radio']:checked + label > img {
     font-size: 2rem;
   }
   .infoTurn {
-    padding: 1.5rem 1rem 0 0;
+    padding: 2rem 1rem;
   }
   .infoTurn p {
     margin-right: 1rem;
@@ -623,14 +623,5 @@ header input[type='radio']:checked + label > img {
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
     padding-top: 1rem;
-  }
-  .infoTurn {
-    padding: 1rem 0.5rem 0.5rem 0;
-  }
-  .infoTurn p {
-    font-size: 0.7rem;
-  }
-  .infoTurn button {
-    font-size: 0.7rem;
   }
 }
