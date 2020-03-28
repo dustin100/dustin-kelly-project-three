@@ -62,6 +62,7 @@ $(document).ready(function() {
 	// function that checks if data types are the same
 	const doesItMatch = function() {
 		if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
+			$('audio#spadeMatch')[0].play();
 			lockBoard = false;
 			areAllCardsFlipped();
 		} else {
