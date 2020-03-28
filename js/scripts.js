@@ -133,7 +133,7 @@ $(document).ready(function() {
 			isGameOver = true;
 			$('.gameMessage').show();
 			$('.statement')
-				.text('You Lose')
+				.text('Game Over')
 				.css({
 					color: 'red'
 				});
@@ -158,14 +158,11 @@ $(document).ready(function() {
 		areAllCardsFlipped();
 	};
 
-	
-// Checks if user is using Chrome. If so, add css 
-	 (function() {
+	// Checks if user is using Chrome. If so, add css
+	(function() {
 		const isChromium = !!window.chrome;
 		if (isChromium === true) {
 			$('.cardFront, .cardBack').css('mix-blend-mode', 'multiply');
 		}
 	})();
-
-	
 });
