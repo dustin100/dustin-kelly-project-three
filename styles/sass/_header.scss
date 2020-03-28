@@ -17,13 +17,16 @@ header {
 	}
 
 	p {
-		font-size: 3rem;
+		font-size: 1.5rem;
 		background: $main-color;
 		@include pixBorder(6px, black);
 		width: 80%;
 		margin: 0 auto;
 		padding: 2rem;
 		margin-bottom: 2rem;
+		font-family: 'pix', 'sans-serif';
+		text-transform: uppercase;
+		line-height: 2;
 	}
 	legend {
 		background: rgba($color: #ffffff, $alpha: 0.7);
@@ -37,8 +40,6 @@ header {
 		opacity: 0;
 		width: 0;
 		height: 0;
-
-		
 	}
 
 	legend {
