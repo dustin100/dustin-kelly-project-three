@@ -14,6 +14,8 @@ $(document).ready(function() {
 				.off('click')
 				.toggleClass('cardFlip');
 			hasBeenFlipped = true;
+			$('audio#spadeTurn')[0].currentTime = 0;
+			$('audio#spadeTurn')[0].play();
 
 			// sets variable on first click
 			firstClick = $(this);
@@ -21,6 +23,8 @@ $(document).ready(function() {
 			$(this)
 				.off('click')
 				.toggleClass('cardFlip');
+			$('audio#spadeTurn')[0].currentTime = 0;
+			$('audio#spadeTurn')[0].play();
 
 			hasBeenFlipped = false;
 			// sets variable on second click
@@ -30,7 +34,7 @@ $(document).ready(function() {
 			lockBoard = true;
 
 			// if cards are not a match cards will wait 1 sec and flip back over.
-			setTimeout(doesItMatch, 1000);
+			setTimeout(doesItMatch, 550);
 		}
 	};
 
@@ -78,6 +82,7 @@ $(document).ready(function() {
 		$('header').fadeOut('slow');
 		$('.borderWrapper').fadeIn('slow');
 		gameSetUp();
+		$('audio#enterLevel')[0].play();
 	});
 
 	$('.replay').on('click', function() {
@@ -88,6 +93,7 @@ $(document).ready(function() {
 			.on('click', handleClick)
 			.removeClass('cardFlip');
 		gameSetUp();
+		$('audio#enterLevel')[0].play();
 	});
 
 	$('.backMenu').on('click', function() {
@@ -99,6 +105,7 @@ $(document).ready(function() {
 			.off()
 			.on('click', handleClick)
 			.removeClass('cardFlip');
+		$('audio#enterLevel')[0].play();
 	});
 
 	const gameSetUp = () => {
@@ -137,6 +144,7 @@ $(document).ready(function() {
 				.css({
 					color: 'red'
 				});
+			$('audio#lostGame')[0].play();
 		}
 	};
 
@@ -150,6 +158,7 @@ $(document).ready(function() {
 				.css({
 					color: 'green'
 				});
+			$('audio#winGame')[0].play();
 		}
 	};
 
