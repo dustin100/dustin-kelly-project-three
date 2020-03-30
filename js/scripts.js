@@ -46,6 +46,7 @@ $(document).ready(function() {
 		for (let i = array.length; i > 0; i--) {
 			// this gives a random number between 0  and array length
 			const randomCardIndex = Math.floor(Math.random() * array.length);
+			// Removes one item from the array
 			const element = array.splice(randomCardIndex, 1);
 			$('.gameBoard').append(element[0]);
 		}
@@ -115,6 +116,7 @@ $(document).ready(function() {
 		isGameOver = false;
 		hasBeenFlipped = false;
 		randomizer(cardList);
+		// redefining cardList is required bc the randomizer is using splice
 		cardList = $('.card');
 		$('.turnsLeft').text(numOfTurns);
 	};
@@ -168,7 +170,7 @@ $(document).ready(function() {
 		areAllCardsFlipped();
 	};
 
-	// Checks if user is using Chrome. If so, add css
+	// Checks if user is using Chrome. If so, add css to fix chrome bug
 	(function() {
 		const isChromium = !!window.chrome;
 		if (isChromium === true) {

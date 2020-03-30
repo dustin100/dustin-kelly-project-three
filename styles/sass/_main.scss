@@ -19,7 +19,7 @@
 	transform: scale(1);
 	transform-style: preserve-3d;
 	transition: transform 0.5s;
-	max-width: 150px;
+	max-width: 125px;
 
 	&:active {
 		transform: scale(0.95);
@@ -79,14 +79,16 @@
 	display: none;
 	background: rgba(0, 0, 0, 0.9);
 	text-align: center;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
+	right: 0;
 	margin: auto;
 	padding-top: 20%;
+	z-index: 2;
 
 	.statement {
 		font-family: 'Press Start 2P', cursive;
