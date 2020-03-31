@@ -5,7 +5,6 @@ $(document).ready(function() {
 	let hasBeenFlipped;
 	let lockBoard;
 	let numOfTurns;
-	let isGameOver;
 
 	const handleClick = function() {
 		if (lockBoard) return;
@@ -55,7 +54,6 @@ $(document).ready(function() {
 		turn = numOfTurns--;
 		$('.turnsLeft').text(numOfTurns);
 		checkTurnsLeft();
-		checkEndOfGame();
 	};
 
 	// function that checks if data types are the same
@@ -83,7 +81,6 @@ $(document).ready(function() {
 		$('.borderWrapper').fadeIn('slow');
 		gameSetUp();
 		$('audio#enterLevel')[0].play();
-		
 	});
 
 	$('.replay').on('click', function() {
@@ -128,7 +125,7 @@ $(document).ready(function() {
 		} else if (selected === 'normal') {
 			numOfTurns = 10;
 		} else {
-			numOfTurns = 5;
+			numOfTurns = 6;
 		}
 	};
 
@@ -136,6 +133,7 @@ $(document).ready(function() {
 
 	// if all cards are flipped > game over || game turns left are zero > game over
 
+	// lose
 	const checkTurnsLeft = function(turn) {
 		turn = numOfTurns;
 		if (turn <= 0) {
@@ -147,10 +145,10 @@ $(document).ready(function() {
 					color: 'red'
 				});
 			playSoundEffect('audio#lostGame');
-
 		}
 	};
 
+	// win
 	const areAllCardsFlipped = function(flipped) {
 		flipped = $('.cardFlip').length;
 		if (flipped === 18) {
@@ -162,13 +160,7 @@ $(document).ready(function() {
 					color: 'green'
 				});
 			playSoundEffect('audio#winGame');
-
 		}
-	};
-
-	const checkEndOfGame = function() {
-		checkTurnsLeft();
-		areAllCardsFlipped();
 	};
 
 	// Play Audio
