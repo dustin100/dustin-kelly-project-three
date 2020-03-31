@@ -14,8 +14,7 @@ $(document).ready(function() {
 				.off('click')
 				.toggleClass('cardFlip');
 			hasBeenFlipped = true;
-			$('audio#spadeTurn')[0].currentTime = 0;
-			$('audio#spadeTurn')[0].play();
+			playSoundEffect('audio#spadeTurn');
 
 			// sets variable on first click
 			firstClick = $(this);
@@ -23,8 +22,7 @@ $(document).ready(function() {
 			$(this)
 				.off('click')
 				.toggleClass('cardFlip');
-			$('audio#spadeTurn')[0].currentTime = 0;
-			$('audio#spadeTurn')[0].play();
+			playSoundEffect('audio#spadeTurn');
 
 			hasBeenFlipped = false;
 			// sets variable on second click
@@ -63,7 +61,7 @@ $(document).ready(function() {
 	// function that checks if data types are the same
 	const doesItMatch = function() {
 		if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
-			$('audio#spadeMatch')[0].play();
+			playSoundEffect('audio#spadeMatch');
 			lockBoard = false;
 			areAllCardsFlipped();
 		} else {
@@ -85,6 +83,7 @@ $(document).ready(function() {
 		$('.borderWrapper').fadeIn('slow');
 		gameSetUp();
 		$('audio#enterLevel')[0].play();
+		
 	});
 
 	$('.replay').on('click', function() {
@@ -147,7 +146,8 @@ $(document).ready(function() {
 				.css({
 					color: 'red'
 				});
-			$('audio#lostGame')[0].play();
+			playSoundEffect('audio#lostGame');
+
 		}
 	};
 
@@ -161,13 +161,20 @@ $(document).ready(function() {
 				.css({
 					color: 'green'
 				});
-			$('audio#winGame')[0].play();
+			playSoundEffect('audio#winGame');
+
 		}
 	};
 
 	const checkEndOfGame = function() {
 		checkTurnsLeft();
 		areAllCardsFlipped();
+	};
+
+	// Play Audio
+	const playSoundEffect = soundId => {
+		$(soundId)[0].currentTime = 0;
+		$(soundId)[0].play();
 	};
 
 	// Checks if user is using Chrome. If so, add css to fix chrome bug
