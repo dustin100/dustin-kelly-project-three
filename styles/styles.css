@@ -488,7 +488,7 @@ header input[type='radio']:checked + label > img {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
-  max-width: 150px;
+  max-width: 125px;
 }
 
 .card:active {
@@ -557,13 +557,15 @@ header input[type='radio']:checked + label > img {
   background: rgba(0, 0, 0, 0.9);
   text-align: center;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
+  right: 0;
   margin: auto;
   padding-top: 20%;
+  z-index: 2;
 }
 
 .gameMessage .statement {
