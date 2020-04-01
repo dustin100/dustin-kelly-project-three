@@ -80,7 +80,7 @@ $(document).ready(function() {
 		$('header').fadeOut('slow');
 		$('.borderWrapper').fadeIn('slow');
 		gameSetUp();
-		$('audio#enterLevel')[0].play();
+		playSoundEffect('audio#enterLevel');
 	});
 
 	$('.replay').on('click', function() {
@@ -91,7 +91,7 @@ $(document).ready(function() {
 			.on('click', handleClick)
 			.removeClass('cardFlip');
 		gameSetUp();
-		$('audio#enterLevel')[0].play();
+		playSoundEffect('audio#enterLevel');
 	});
 
 	$('.backMenu').on('click', function() {
@@ -109,7 +109,6 @@ $(document).ready(function() {
 	const gameSetUp = () => {
 		selectMode();
 		lockBoard = false;
-		isGameOver = false;
 		hasBeenFlipped = false;
 		randomizer(cardList);
 		// redefining cardList is required bc the randomizer is using splice
@@ -117,7 +116,7 @@ $(document).ready(function() {
 		$('.turnsLeft').text(numOfTurns);
 	};
 
-	// allows user to choose their difficulty level
+	// allows user to choose difficulty level
 	const selectMode = function(selected) {
 		selected = $("input[name='difficulty']:checked").val();
 		if (selected === 'easy') {
@@ -129,7 +128,7 @@ $(document).ready(function() {
 		}
 	};
 
-	// Make game winning logic
+	//  game winning logic
 
 	// if all cards are flipped > game over || game turns left are zero > game over
 
@@ -137,13 +136,7 @@ $(document).ready(function() {
 	const checkTurnsLeft = function(turn) {
 		turn = numOfTurns;
 		if (turn <= 0) {
-			isGameOver = true;
-			$('.gameMessage').show();
-			$('.statement')
-				.text('Game Over')
-				.css({
-					color: 'red'
-				});
+			endScreen('Game Over', 'red');
 			playSoundEffect('audio#lostGame');
 		}
 	};
@@ -152,15 +145,19 @@ $(document).ready(function() {
 	const areAllCardsFlipped = function(flipped) {
 		flipped = $('.cardFlip').length;
 		if (flipped === 18) {
-			isGameOver = true;
-			$('.gameMessage').show();
-			$('.statement')
-				.text('You Win')
-				.css({
-					color: 'green'
-				});
+			endScreen('You Win', 'green');
 			playSoundEffect('audio#winGame');
 		}
+	};
+
+	// used to display win or lose message
+	const endScreen = function(text, color) {
+		$('.gameMessage').show(500);
+		$('.statement')
+			.text(text)
+			.css({
+				color: color
+			});
 	};
 
 	// Play Audio
