@@ -1,45 +1,88 @@
 $(document).ready(function() {
-	let cardList = $('.card');
-	let firstClick;
-	let secondClick;
-	let hasBeenFlipped;
-	let lockBoard;
-	let numOfTurns;
+	// namespacing object
+	const mCardGame = {};
 
-	const handleClick = function() {
-		if (lockBoard) return;
-		if (hasBeenFlipped === false) {
+	mCardGame.cardList = $('.card');
+	mCardGame.firstClick = null;
+	mCardGame.secondClick = null;
+	mCardGame.hasBeenFlipped = null;
+	mCardGame.lockBoard = null;
+	mCardGame.numOfTurns = null;
+
+	mCardGame.init = function() {
+		// on click toggles class cardFlip and gives it the card flipping effect
+		$('.card').on('click', mCardGame.handleClick);
+
+		// play button that starts the game
+		$('.playButton').on('click', function() {
+			$('header').fadeOut('slow');
+			$('.borderWrapper').fadeIn('slow');
+			mCardGame.gameSetUp();
+			mCardGame.playSoundEffect('audio#enterLevel');
+		});
+
+		$('.replay').on('click', function() {
+			$('.card').removeClass('cardFlip');
+			$('.gameMessage').fadeOut('slow');
+			$('.card')
+				.off()
+				.on('click', mCardGame.handleClick)
+				.removeClass('cardFlip');
+			mCardGame.gameSetUp();
+			mCardGame.playSoundEffect('audio#enterLevel');
+		});
+
+		$('.backMenu').on('click', function() {
+			$('header').fadeIn('slow');
+			$('.gameMessage').hide();
+			$('.borderWrapper').fadeOut('slow');
+			$('.card')
+				.off()
+				.on('click', mCardGame.handleClick)
+				.removeClass('cardFlip');
+			$('audio#enterLevel')[0].play();
+		});
+
+		// Checks if user is using Chrome. If so, adds css to fix chrome bug
+		(function() {
+			const isChromium = !!window.chrome;
+			if (isChromium === true) {
+				$('.cardFront, .cardBack').css('mix-blend-mode', 'multiply');
+			}
+		})();
+	};
+
+	mCardGame.handleClick = function() {
+		if (mCardGame.lockBoard) return;
+		if (mCardGame.hasBeenFlipped === false) {
 			$(this)
 				.off('click')
 				.toggleClass('cardFlip');
-			hasBeenFlipped = true;
-			playSoundEffect('audio#spadeTurn');
+			mCardGame.hasBeenFlipped = true;
+			mCardGame.playSoundEffect('audio#spadeTurn');
 
 			// sets variable on first click
-			firstClick = $(this);
+			mCardGame.firstClick = $(this);
 		} else {
 			$(this)
 				.off('click')
 				.toggleClass('cardFlip');
-			playSoundEffect('audio#spadeTurn');
+			mCardGame.playSoundEffect('audio#spadeTurn');
 
-			hasBeenFlipped = false;
+			mCardGame.hasBeenFlipped = false;
 			// sets variable on second click
-			secondClick = $(this);
+			mCardGame.secondClick = $(this);
 
 			// This locks the board after the second card is flipped
-			lockBoard = true;
+			mCardGame.lockBoard = true;
 
 			// if cards are not a match cards will wait 1 sec and flip back over.
-			setTimeout(doesItMatch, 550);
+			setTimeout(mCardGame.doesItMatch, 550);
 		}
 	};
 
-	// on click toggles class cardFlip and gives it the card flipping effect
-	$('.card').on('click', handleClick);
-
 	// Randomize the cards
-	const randomizer = function(array) {
+	mCardGame.randomizer = function(array) {
 		for (let i = array.length; i > 0; i--) {
 			// this gives a random number between 0  and array length
 			const randomCardIndex = Math.floor(Math.random() * array.length);
@@ -50,81 +93,57 @@ $(document).ready(function() {
 	};
 
 	// Counts down the number of turns left
-	const takeTurn = turn => {
-		turn = numOfTurns--;
-		$('.turnsLeft').text(numOfTurns);
-		checkTurnsLeft();
+	mCardGame.takeTurn = turn => {
+		turn = mCardGame.numOfTurns--;
+		$('.turnsLeft').text(mCardGame.numOfTurns);
+		mCardGame.checkTurnsLeft();
 	};
 
 	// function that checks if data types are the same
-	const doesItMatch = function() {
-		if (firstClick.attr('data-card') === secondClick.attr('data-card')) {
-			playSoundEffect('audio#spadeMatch');
-			lockBoard = false;
-			areAllCardsFlipped();
+	mCardGame.doesItMatch = function() {
+		if (
+			mCardGame.firstClick.attr('data-card') ===
+			mCardGame.secondClick.attr('data-card')
+		) {
+			mCardGame.playSoundEffect('audio#spadeMatch');
+			mCardGame.lockBoard = false;
+			mCardGame.areAllCardsFlipped();
 		} else {
-			resetCardsIfNotMatch();
-			takeTurn();
-			lockBoard = false;
+			mCardGame.resetCardsIfNotMatch();
+			mCardGame.takeTurn();
+			mCardGame.lockBoard = false;
 		}
 	};
 
 	// Resets cards if they don't match
-	const resetCardsIfNotMatch = function() {
-		firstClick.on('click', handleClick).removeClass('cardFlip');
-		secondClick.on('click', handleClick).removeClass('cardFlip');
+	mCardGame.resetCardsIfNotMatch = function() {
+		mCardGame.firstClick
+			.on('click', mCardGame.handleClick)
+			.removeClass('cardFlip');
+		mCardGame.secondClick
+			.on('click', mCardGame.handleClick)
+			.removeClass('cardFlip');
 	};
 
-	// play button that starts the game
-	$('.playButton').on('click', function() {
-		$('header').fadeOut('slow');
-		$('.borderWrapper').fadeIn('slow');
-		gameSetUp();
-		playSoundEffect('audio#enterLevel');
-	});
-
-	$('.replay').on('click', function() {
-		$('.card').removeClass('cardFlip');
-		$('.gameMessage').fadeOut('slow');
-		$('.card')
-			.off()
-			.on('click', handleClick)
-			.removeClass('cardFlip');
-		gameSetUp();
-		playSoundEffect('audio#enterLevel');
-	});
-
-	$('.backMenu').on('click', function() {
-		$('header').fadeIn('slow');
-		$('.gameMessage').hide();
-		$('.borderWrapper').fadeOut('slow');
-
-		$('.card')
-			.off()
-			.on('click', handleClick)
-			.removeClass('cardFlip');
-		$('audio#enterLevel')[0].play();
-	});
-
-	const gameSetUp = () => {
-		selectMode();
-		lockBoard = false;
-		hasBeenFlipped = false;
-		randomizer(cardList);
+	mCardGame.gameSetUp = () => {
+		mCardGame.selectMode();
+		mCardGame.lockBoard = false;
+		mCardGame.hasBeenFlipped = false;
+		mCardGame.randomizer(mCardGame.cardList);
 		// redefining cardList is required bc the randomizer is using splice
 		cardList = $('.card');
-		$('.turnsLeft').text(numOfTurns);
+		$('.turnsLeft').text(mCardGame.numOfTurns);
 	};
 
 	// allows user to choose difficulty level
-	const selectMode = function(selected) {
+	mCardGame.selectMode = function(selected) {
 		selected = $("input[name='difficulty']:checked").val();
 		if (selected === 'easy') {
-			numOfTurns = 20;
+			mCardGame.numOfTurns = 20;
 		} else if (selected === 'normal') {
-			numOfTurns = 10;
+			mCardGame.numOfTurns = 10;
 		} else {
-			numOfTurns = 6;
+			mCardGame.numOfTurns = 6;
 		}
 	};
 
@@ -133,25 +152,25 @@ $(document).ready(function() {
 	// if all cards are flipped > game over || game turns left are zero > game over
 
 	// lose
-	const checkTurnsLeft = function(turn) {
-		turn = numOfTurns;
+	mCardGame.checkTurnsLeft = function(turn) {
+		turn = mCardGame.numOfTurns;
 		if (turn <= 0) {
-			endScreen('Game Over', 'red');
-			playSoundEffect('audio#lostGame');
+			mCardGame.endScreen('Game Over', 'red');
+			mCardGame.playSoundEffect('audio#lostGame');
 		}
 	};
 
 	// win
-	const areAllCardsFlipped = function(flipped) {
+	mCardGame.areAllCardsFlipped = function(flipped) {
 		flipped = $('.cardFlip').length;
 		if (flipped === 18) {
-			endScreen('You Win', 'green');
-			playSoundEffect('audio#winGame');
+			mCardGame.endScreen('You Win', 'green');
+			mCardGame.playSoundEffect('audio#winGame');
 		}
 	};
 
 	// used to display win or lose message
-	const endScreen = function(text, color) {
+	mCardGame.endScreen = function(text, color) {
 		$('.gameMessage').show(500);
 		$('.statement')
 			.text(text)
@@ -161,16 +180,10 @@ $(document).ready(function() {
 	};
 
 	// Play Audio
-	const playSoundEffect = soundId => {
+	mCardGame.playSoundEffect = soundId => {
 		$(soundId)[0].currentTime = 0;
 		$(soundId)[0].play();
 	};
 
-	// Checks if user is using Chrome. If so, add css to fix chrome bug
-	(function() {
-		const isChromium = !!window.chrome;
-		if (isChromium === true) {
-			$('.cardFront, .cardBack').css('mix-blend-mode', 'multiply');
-		}
-	})();
+	mCardGame.init();
 });
