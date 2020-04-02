@@ -131,7 +131,7 @@ $(document).ready(function() {
 		mCardGame.hasBeenFlipped = false;
 		mCardGame.randomizer(mCardGame.cardList);
 		// redefining cardList is required bc the randomizer is using splice
-		cardList = $('.card');
+		mCardGame.cardList = $('.card');
 		$('.turnsLeft').text(mCardGame.numOfTurns);
 	};
 
