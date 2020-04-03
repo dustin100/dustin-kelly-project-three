@@ -369,8 +369,14 @@ textarea {
   transition: background 1s ease-in-out;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover {
   background: #fcbcb0;
+}
+
+.btn:focus {
+  -webkit-box-shadow: 3px 0 red, -3px 0 red, 0 -3px red, 0 3px red;
+          box-shadow: 3px 0 red, -3px 0 red, 0 -3px red, 0 3px red;
+  margin: 3px auto;
 }
 
 header {
@@ -489,7 +495,9 @@ header input[type='radio']:checked + label > img {
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
   max-width: 125px;
-  border: 2px  solid transparent;
+  -webkit-box-shadow: 2px 0 transparent, -2px 0 transparent, 0 -2px transparent, 0 2px transparent;
+          box-shadow: 2px 0 transparent, -2px 0 transparent, 0 -2px transparent, 0 2px transparent;
+  margin: 2px auto;
 }
 
 .card:active {
@@ -503,7 +511,9 @@ header input[type='radio']:checked + label > img {
 }
 
 .card:focus {
-  border: red;
+  -webkit-box-shadow: 2px 0 red, -2px 0 red, 0 -2px red, 0 2px red;
+          box-shadow: 2px 0 red, -2px 0 red, 0 -2px red, 0 2px red;
+  margin: 2px auto;
 }
 
 .cardFront,

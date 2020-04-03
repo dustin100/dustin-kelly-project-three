@@ -20,7 +20,7 @@
 	transform-style: preserve-3d;
 	transition: transform 0.5s;
 	max-width: 125px;
-	border: 2px  solid transparent;
+	@include pixBorder(2px, transparent);
 
 	&:active {
 		transform: scale(0.95);
@@ -30,7 +30,7 @@
 		transform: rotateY(180deg);
 	}
 	&:focus {
-		border: red;
+		@include pixBorder(2px, red);
 	}
 }
 
