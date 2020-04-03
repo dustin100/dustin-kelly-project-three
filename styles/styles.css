@@ -489,6 +489,7 @@ header input[type='radio']:checked + label > img {
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
   max-width: 125px;
+  border: 2px  solid transparent;
 }
 
 .card:active {
@@ -499,6 +500,10 @@ header input[type='radio']:checked + label > img {
 .cardFlip {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+.card:focus {
+  border: red;
 }
 
 .cardFront,
