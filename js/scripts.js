@@ -81,7 +81,7 @@ $(document).ready(function() {
 			// This locks the board after the second card is flipped
 			mCardGame.lockBoard = true;
 
-			// if cards are not a match cards will wait 1 sec and flip back over.
+			// if cards are not a match cards will wait 550 ms and flip back over.
 			setTimeout(mCardGame.doesItMatch, 550);
 		}
 	};
