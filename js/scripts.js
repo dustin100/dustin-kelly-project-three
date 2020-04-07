@@ -7,24 +7,30 @@ mCardGame.secondClick = null;
 mCardGame.hasBeenFlipped = null;
 mCardGame.lockBoard = null;
 mCardGame.numOfTurns = null;
+mCardGame.turnsLeft = null;
+mCardGame.playButton = document.querySelector('.playButton');
+mCardGame.replayButton = document.querySelector('.replay');
 
 mCardGame.init = function () {
 	// on click toggles class cardFlip and gives it the card flipping effect
-	$('.card').on('click', mCardGame.handleEvent);
-	$('.card').keypress('Enter', mCardGame.handleEvent);
+	mCardGame.cardList.on('click', mCardGame.handleEvent);
+	mCardGame.cardList.keypress('Enter', mCardGame.handleEvent);
 
 	// play button that starts the game
-	$('.playButton').on('click', function () {
+	// $('.playButton').on('click', function () {});
+
+	mCardGame.playButton.addEventListener('click', function () {
 		$('header').fadeOut('slow');
 		$('.borderWrapper').fadeIn('slow');
 		mCardGame.gameSetUp();
 		mCardGame.playSoundEffect('audio#enterLevel');
 	});
 
-	$('.replay').on('click', function () {
-		$('.card').removeClass('cardFlip');
+	// $('.replay').on('click', function () { });
+	mCardGame.replayButton.addEventListener('click', function () {
+		mCardGame.cardList.removeClass('cardFlip');
 		$('.gameMessage').fadeOut('slow');
-		$('.card')
+		mCardGame.cardList
 			.off()
 			.on('click', mCardGame.handleEvent)
 			.keypress('Enter', mCardGame.handleEvent)
@@ -37,7 +43,7 @@ mCardGame.init = function () {
 		$('header').fadeIn('slow');
 		$('.gameMessage').hide();
 		$('.borderWrapper').fadeOut('slow');
-		$('.card')
+		mCardGame.cardList
 			.off()
 			.on('click', mCardGame.handleEvent)
 			.keypress('Enter', mCardGame.handleEvent)
@@ -94,6 +100,7 @@ mCardGame.randomizer = function (array) {
 mCardGame.takeTurn = (turn) => {
 	turn = mCardGame.numOfTurns--;
 	$('.turnsLeft').text(mCardGame.numOfTurns);
+	// document.querySelector('.turnsLeft').textContent(mCardGame.numOfTurns);
 	mCardGame.checkTurnsLeft();
 };
 
@@ -157,7 +164,7 @@ mCardGame.checkTurnsLeft = function (turn) {
 	if (turn <= 0) {
 		mCardGame.endScreen('Game Over', 'red');
 		mCardGame.playSoundEffect('audio#lostGame');
-		$('.card').off('keypress');
+		mCardGame.cardList.off('keypress');
 		$('.replay').focus();
 	}
 };
