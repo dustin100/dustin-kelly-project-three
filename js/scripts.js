@@ -41,11 +41,7 @@ mCardGame.handlePlayButton = () => {
 mCardGame.handleReplayButton = () => {
 	mCardGame.cardList.removeClass('cardFlip');
 	$('.gameMessage').fadeOut('slow');
-	mCardGame.cardList
-		.off()
-		.on('click', mCardGame.handleCardFlip)
-		.keypress('Enter', mCardGame.handleCardFlip)
-		.removeClass('cardFlip');
+	mCardGame.resetEventHandlers();
 	mCardGame.gameSetUp();
 	mCardGame.playSoundEffect('audio#enterLevel');
 };
@@ -54,11 +50,7 @@ mCardGame.handleBackMenu = () => {
 	$('header').fadeIn('slow');
 	$('.gameMessage').hide();
 	$('.borderWrapper').fadeOut('slow');
-	mCardGame.cardList
-		.off()
-		.on('click', mCardGame.handleCardFlip)
-		.keypress('Enter', mCardGame.handleCardFlip)
-		.removeClass('cardFlip');
+	mCardGame.resetEventHandlers();
 	mCardGame.playSoundEffect('audio#enterLevel');
 };
 
@@ -86,6 +78,14 @@ mCardGame.handleCardFlip = function () {
 		// if cards are not a match cards will wait 550 ms and flip back over.
 		setTimeout(mCardGame.doesItMatch, 550);
 	}
+};
+
+mCardGame.resetEventHandlers = () => {
+	mCardGame.cardList
+		.off()
+		.on('click', mCardGame.handleCardFlip)
+		.keypress('Enter', mCardGame.handleCardFlip)
+		.removeClass('cardFlip');
 };
 
 // Randomize the cards
