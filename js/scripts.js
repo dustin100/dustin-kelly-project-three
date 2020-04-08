@@ -157,7 +157,6 @@ mCardGame.selectMode = (selected) => {
 };
 
 //  game winning logic
-
 // if all cards are flipped > game over || game turns left are zero > game over
 
 // lose
@@ -197,6 +196,7 @@ mCardGame.playSoundEffect = (soundId) => {
 	}
 };
 
+// Turns audio on or off
 mCardGame.handleSoundButton = () => {
 	if (mCardGame.soundOn === true) {
 		mCardGame.soundOn = false;
