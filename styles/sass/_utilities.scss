@@ -16,12 +16,12 @@
 	letter-spacing: 0.7px;
 	font-family: 'Press Start 2P', cursive;
 	text-transform: uppercase;
-	
 
 	&:hover {
 		background: $main-color;
 	}
 	&:focus {
 		@include pixBorder(3px, red);
+		margin-right: 1rem;
 	}
 }

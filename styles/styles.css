@@ -375,6 +375,7 @@ textarea {
   -webkit-box-shadow: 3px 0 red, -3px 0 red, 0 -3px red, 0 3px red;
           box-shadow: 3px 0 red, -3px 0 red, 0 -3px red, 0 3px red;
   margin: 3px auto;
+  margin-right: 1rem;
 }
 
 header {
