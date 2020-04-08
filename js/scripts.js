@@ -7,7 +7,7 @@ mCardGame.secondClick = null;
 mCardGame.hasBeenFlipped = null;
 mCardGame.lockBoard = null;
 mCardGame.numOfTurns = null;
-mCardGame.soundOn = false;
+mCardGame.soundOn = true;
 
 mCardGame.init = () => {
 	// play button that starts the game
@@ -19,6 +19,8 @@ mCardGame.init = () => {
 	$('.replay').on('click', mCardGame.handleReplayButton);
 
 	$('.backMenu').on('click', mCardGame.handleBackMenu);
+
+	$('.wantSound').on('click', mCardGame.handleSoundButton);
 
 	// Checks if user is using Chrome. If so, adds css to fix chrome bug
 	(function () {
@@ -192,6 +194,16 @@ mCardGame.playSoundEffect = (soundId) => {
 	if (mCardGame.soundOn === true) {
 		$(soundId)[0].currentTime = 0;
 		$(soundId)[0].play();
+	}
+};
+
+mCardGame.handleSoundButton = () => {
+	if (mCardGame.soundOn === true) {
+		mCardGame.soundOn = false;
+		$('.wantSound').html('<i class="fas fa-volume-mute"></i>');
+	} else {
+		mCardGame.soundOn = true;
+		$('.wantSound').html('<i class="fas fa-volume-up"></i>');
 	}
 };
 

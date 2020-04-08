@@ -464,6 +464,10 @@ header input[type='radio']:checked + label > img {
           transform: scale(1.07);
 }
 
+header .playButton {
+  margin-right: 1rem;
+}
+
 .borderWrapper {
   background: repeating-linear-gradient(45deg, #e33b2b, #ffffff 10px, #e33b2b 10px, #ffffff 20px);
   padding: 1.5rem 1.5rem 0 1.5rem;
