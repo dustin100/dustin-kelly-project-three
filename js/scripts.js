@@ -10,6 +10,7 @@ mCardGame.numOfTurns = null;
 mCardGame.turnsLeft = null;
 mCardGame.playButton = document.querySelector('.playButton');
 mCardGame.replayButton = document.querySelector('.replay');
+mCardGame.backButton = document.querySelector('.backMenu');
 
 mCardGame.init = function () {
 	// on click toggles class cardFlip and gives it the card flipping effect
@@ -39,7 +40,8 @@ mCardGame.init = function () {
 		mCardGame.playSoundEffect('audio#enterLevel');
 	});
 
-	$('.backMenu').on('click', function () {
+	// $('.backMenu').on('click', function () {
+	mCardGame.backButton.addEventListener('click', function () {
 		$('header').fadeIn('slow');
 		$('.gameMessage').hide();
 		$('.borderWrapper').fadeOut('slow');
@@ -50,6 +52,7 @@ mCardGame.init = function () {
 			.removeClass('cardFlip');
 		$('audio#enterLevel')[0].play();
 	});
+	// });
 
 	// Checks if user is using Chrome. If so, adds css to fix chrome bug
 	(function () {
@@ -162,7 +165,7 @@ mCardGame.selectMode = function (selected) {
 mCardGame.checkTurnsLeft = function (turn) {
 	turn = mCardGame.numOfTurns;
 	if (turn <= 0) {
-		mCardGame.endScreen('Game Over', 'red');
+		mCardGame.endScreen('Game Over', '#FF0000');
 		mCardGame.playSoundEffect('audio#lostGame');
 		mCardGame.cardList.off('keypress');
 		$('.replay').focus();
@@ -180,11 +183,11 @@ mCardGame.areAllCardsFlipped = function (flipped) {
 };
 
 // used to display win or lose message
-mCardGame.endScreen = function (text, color) {
+mCardGame.endScreen = function (text, textColor) {
 	$('.gameMessage').show(500);
-	$('.statement').text(text).css({
-		color: color,
-	});
+	const statementText = document.querySelector('.statement');
+	statementText.textContent = text;
+	statementText.style.color = textColor;
 };
 
 // Play Audio
